@@ -1,0 +1,15 @@
+ui/node_modules
+ui/public/hot
+ui/public/storage
+webserver/storage/*.key
+webserver/vendor
+webserver/.env
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.idea
+webserver/.vscode
