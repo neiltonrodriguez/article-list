@@ -17,18 +17,7 @@ class UserController extends Controller
                 $user->first_name = $r->first_name;
                 $user->last_name = $r->last_name;
                 $user->email = $r->email;
-                $user->instrument = $r->instrument;
                 $user->password = bcrypt($r->password);
-                $profile_id = 1;
-                if (isset($r->profile_id)) {
-                    $profile_id = $r->profile_id;
-                }
-                $user->profile_id = $profile_id;
-                $is_active = false;
-                if ($r->is_active) {
-                    $is_active = true;
-                }
-                $user->is_active = $is_active;
 
                 if ($user->save()) {
                     return response()->json(['status' => 'success', 'data' => $user]);

@@ -5,14 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Scale extends Model
+class Article extends Model
 {
     use HasFactory;
-    protected $table = "scale";
+    protected $table = "articles";
     protected $fillable = [
         'title',
-        'group_id',
-        'start',
-        'end',
+        'description',
+        'text',
+        'image',
+        'author',
     ];
+    public $timestamps = false;
 }

@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', function () {
-    return "api equipe. v1.0.0";
+    return "api article-list. Para acessar a api, dispare suas requisições para endpoint 'http://localhost:8000/api/'";
 });
 

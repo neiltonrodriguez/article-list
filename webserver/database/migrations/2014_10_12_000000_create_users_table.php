@@ -19,13 +19,6 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->foreignId('profile_id')
-                ->nullable()
-                ->constrained('profile')
-                ->cascadeOnUpdate()
-                ->nullOnDelete();
-            $table->string('instrument');
-            $table->tinyInteger('is_active')->default(1);
             $table->timestamps();
 
         });
