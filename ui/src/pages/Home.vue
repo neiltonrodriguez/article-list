@@ -3,6 +3,7 @@ import { ref, onMounted } from "vue";
 import http from "../services/http.js";
 import moment from "moment";
 import NavSite from "../components/NavSite.vue";
+import Footer from "../components/Footer.vue";
 import router from "../router";
 
 
@@ -93,6 +94,7 @@ onMounted(() => {
             </div>
 
         </div>
+        <Footer />
     </div>
 </template>
 

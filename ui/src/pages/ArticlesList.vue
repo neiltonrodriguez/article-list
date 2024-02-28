@@ -1,7 +1,5 @@
 <template>
     <div class="mt-3 max-w-7xl focus-visible: rounded-xl m-auto w-full h-full">
-
-
         <div class="mt-10">
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                 <table class="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -36,21 +34,21 @@
     </div>
     <div>
         <div class="flex gap-2 items-center justify-center">
-            <button class="bg-principal p-2 hover:bg-teal-800 duration-200 rounded-md gap-2 text-white" 
-            :class="{'bg-teal-700': current == page }"
-            v-for="(page, index) in pages" :key="page" @click="changePage(page)">
+            <button class="bg-principal p-2 hover:bg-teal-800 duration-200 rounded-md gap-2 text-white"
+                :class="{ 'bg-teal-700': current == page }" v-for="(page, index) in pages" :key="page"
+                @click="changePage(page)">
                 {{ page }}
             </button>
             <span>total de registros: {{ total }}</span>
         </div>
-        
+
     </div>
 </template>
 
 <script setup>
 import { ref, onMounted, inject } from "vue";
 import http from "../services/http.js";
-import router from "../router/index.js";
+// import router from "../router/index.js";
 import Drawer from "../components/Drawer.vue";
 import moment from "moment";
 
@@ -85,30 +83,29 @@ function createArticles(payload) {
         });
 }
 
-function changePage(i){
+function changePage(i) {
     getArticles(i);
-    
+
 }
 
-function getArticles(i = null) {
+async function getArticles(i = null) {
     let page = 1
-    if (i != null){
-        
+    if (i != null) {
         page = i
     }
     current.value = page
     const url = `/article?page=${page}`
-    
-    http
+
+    await http
         .get(url)
         .then((res) => {
             articles.value = res.data.data;
             total.value = res.data.total
             const qty = Math.ceil(total.value / 2)
-            
-            if(qty <= 1) return[1];
+
+            if (qty <= 1) return [1];
             pages.value = Array.from(Array(qty).keys(), (i) => i + 1)
-            
+
         })
         .catch((e) => {
             swal("Erro!", e.message, "error");

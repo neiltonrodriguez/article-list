@@ -1,7 +1,10 @@
 <script setup>
 import { useAuth } from "../stores/auth.js";
-import router from "./../router/index.js";
+// import router from "./../router/index.js";
 import { ref, watch, onMounted } from 'vue'
+import { useRouter, RouterLink } from 'vue-router'
+
+const router = useRouter()
 
 const auth = useAuth();
 const props = defineProps(['isVisibleDrop'])
@@ -10,7 +13,7 @@ const firstLetter = ref("")
 
 function logout() {
     auth.clear();
-    router.push("/login");
+    router.push({ name: 'home'});
 }
 
 function prepareName() {
