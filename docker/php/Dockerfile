@@ -36,6 +36,8 @@ RUN useradd -u 1000 -ms /bin/bash -g laravel user
 COPY --chown=user:laravel . /var/www
 # COPY --chown=www-data:www-data . /var/www
 
+
+
 USER user
 
 EXPOSE 9000

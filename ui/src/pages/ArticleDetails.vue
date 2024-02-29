@@ -8,8 +8,8 @@
                 <h1 class="font-bold text-4xl text-dark">{{ article.title }}</h1>
                 <div class="border-b-4 border-bar-orange w-56 mt-5"></div>
                 <img :src="article.image" class=" mt-10 w-full max-w-4xl rounded-lg">
-                <div class="text-mediun mt-10 text-center max-w-7xl justify-center">
-                    <pre>{{ article.text }}</pre>
+                <div class="text-mediun mt-10 h-full text-center max-w-7xl justify-center">
+                    {{ article.text }}
                 </div>
 
             </div>

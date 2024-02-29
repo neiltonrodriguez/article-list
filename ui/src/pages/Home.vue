@@ -39,7 +39,7 @@ function getArticles(i = null) {
         .then((res) => {
             articles.value = res.data.data;
             total.value = res.data.total
-            const qty = Math.ceil(total.value / 2)
+            const qty = Math.ceil(total.value / 5)
 
             if (qty <= 1) return [1];
             pages.value = Array.from(Array(qty).keys(), (i) => i + 1)
@@ -58,7 +58,7 @@ onMounted(() => {
     <div>
         <NavSite />
         <div class="w-full flex items-center justify-center bg-gray">
-            <div class="w-full max-w-7xl bg-white h-screen p-5">
+            <div class="w-full max-w-7xl bg-white h-full p-5">
                 <div class="">
                     <h1 class="text-4xl font-bold text-dark mt-10">Blog</h1>
                     <div class="border-b-4 border-bar-orange max-w-7"></div>

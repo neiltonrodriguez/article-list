@@ -55,19 +55,7 @@ const swal = inject("$swal");
 
 defineEmits(['payload', 'fechar']);
 
-
-function getArticles() {
-    http
-        .get("/article")
-        .then((res) => {
-            articles.value = res.data.data;
-        })
-        .catch((e) => {
-            swal("Erro!", "Email ou senha incorreta", "error");
-        });
-}
-
 onMounted(() => {
-    getArticles();
+   
 });
 </script>

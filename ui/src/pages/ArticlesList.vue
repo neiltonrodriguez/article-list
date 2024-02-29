@@ -101,7 +101,7 @@ async function getArticles(i = null) {
         .then((res) => {
             articles.value = res.data.data;
             total.value = res.data.total
-            const qty = Math.ceil(total.value / 2)
+            const qty = Math.ceil(total.value / 5)
 
             if (qty <= 1) return [1];
             pages.value = Array.from(Array(qty).keys(), (i) => i + 1)

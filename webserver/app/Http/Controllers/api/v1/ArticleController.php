@@ -44,7 +44,7 @@ class ArticleController extends Controller
 
     public function getAll(){
         $query = Article::query()->select('id', 'title', 'description', 'image', 'created_at');
-        $articles = $query->paginate(2);
+        $articles = $query->paginate(5);
         return response()->json($articles);
     }
 

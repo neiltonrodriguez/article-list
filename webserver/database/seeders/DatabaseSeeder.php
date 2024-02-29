@@ -16,12 +16,14 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'first_name' => 'admin',
-            'last_name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('123456'),
+        // DB::table('users')->insert([
+        //     'first_name' => 'admin',
+        //     'last_name' => 'admin',
+        //     'email' => 'admin@gmail.com',
+        //     'password' => Hash::make('123456'),
 
-        ]);
+        // ]);
+        \App\Models\User::factory(1)->create();
+        \App\Models\Article::factory(15)->create();
     }
 }
